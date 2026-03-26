@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>БазаЦветов24 — Инвестиционная презентация</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #1B4F3A;
+  --green-dark: #0D2B1F;
+  --gold: #C9A84C;
+  --gold-light: #D4B86A;
+  --cream: #F8F6F0;
+  --cream-dark: #EDE8DC;
+  --white: #FFFFFF;
+  --text: #2C2C2C;
+  --text-light: #6B6B6B;
+  --text-muted: #9A9A9A;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  overflow-x: hidden;
+}
+
+/* ═══ UTILITY ═══ */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.gold-line { width: 60px; height: 2px; background: var(--gold); margin: 20px 0 32px; }
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 12px; display: block;
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; }
+h2 { font-size: 42px; line-height: 1.15; color: var(--green-dark); }
+h3 { font-size: 26px; color: var(--green-dark); margin-bottom: 16px; }
+
+p { line-height: 1.7; }
+.text-light { color: var(--text-light); }
+.text-muted { color: var(--text-muted); }
+
+/* ═══ ANIMATIONS ═══ */
+.reveal {
+  opacity: 0; transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.15s; }
+.reveal-delay-2 { transition-delay: 0.3s; }
+.reveal-delay-3 { transition-delay: 0.45s; }
+.reveal-delay-4 { transition-delay: 0.6s; }
+
+/* ═══ HERO ═══ */
+.hero {
+  min-height: 100vh; background: var(--green-dark);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(27,79,58,0.4) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 30%, rgba(201,168,76,0.06) 0%, transparent 50%);
+}
+.hero-content { position: relative; z-index: 1; padding: 48px; }
+.hero h1 {
+  font-size: 72px; color: var(--gold); font-weight: 400;
+  letter-spacing: -1px; margin-bottom: 24px;
+}
+.hero-line {
+  width: 80px; height: 1px; background: var(--gold);
+  margin: 0 auto 28px; opacity: 0.6;
+}
+.hero-sub {
+  font-size: 20px; color: var(--cream); font-weight: 300;
+  letter-spacing: 0.5px; margin-bottom: 8px; opacity: 0.85;
+}
+.hero-metrics {
+  display: flex; gap: 48px; justify-content: center;
+  margin-top: 56px; flex-wrap: wrap;
+}
+.hero-metric { text-align: center; }
+.hero-metric-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px; color: var(--gold); display: block;
+  line-height: 1;
+}
+.hero-metric-label {
+  font-size: 12px; color: rgba(248,246,240,0.5);
+  text-transform: uppercase; letter-spacing: 2px;
+  margin-top: 8px; display: block;
+}
+.hero-badge {
+  position: absolute; bottom: 32px; right: 48px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; color: var(--gold); letter-spacing: 3px;
+  text-transform: uppercase; opacity: 0.4;
+}
+.hero-scroll {
+  position: absolute; bottom: 40px; left: 50%;
+  transform: translateX(-50%);
+  color: rgba(248,246,240,0.3); font-size: 12px;
+  letter-spacing: 2px; text-transform: uppercase;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100% { opacity: 0.3; } 50% { opacity: 0.7; } }
+
+/* ═══ THESIS ═══ */
+.thesis { padding: 120px 0; background: var(--white); }
+.thesis-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 40px; margin-top: 48px;
+}
+.thesis-card {
+  padding: 40px; border: 1px solid var(--cream-dark);
+  position: relative;
+}
+.thesis-card::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 4px; height: 40px; background: var(--gold);
+}
+.thesis-card h3 { font-size: 22px; margin-bottom: 12px; }
+.thesis-card p { font-size: 15px; color: var(--text-light); line-height: 1.65; }
+
+/* ═══ TEAM ═══ */
+.team { padding: 120px 0; background: var(--cream); }
+.team-layout {
+  display: grid; grid-template-columns: 1.4fr 1fr;
+  gap: 64px; align-items: start; margin-top: 48px;
+}
+.team-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  margin-top: 32px;
+}
+.team-stat {
+  padding: 28px; background: var(--white);
+  border-bottom: 3px solid var(--gold);
+}
+.team-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px; color: var(--green); display: block;
+}
+.team-stat-label {
+  font-size: 13px; color: var(--text-light);
+  margin-top: 4px; display: block;
+}
+.geo-card {
+  background: var(--green-dark); padding: 48px;
+  color: var(--cream); position: relative;
+}
+.geo-card h3 { color: var(--gold); }
+.geo-card p { color: rgba(248,246,240,0.75); font-size: 15px; }
+.geo-card ul {
+  list-style: none; margin-top: 20px;
+}
+.geo-card li {
+  padding: 10px 0; border-bottom: 1px solid rgba(201,168,76,0.15);
+  font-size: 14px; color: rgba(248,246,240,0.6);
+}
+.geo-card li strong { color: var(--gold); }
+
+/* ═══ MARKET ═══ */
+.market { padding: 120px 0; background: var(--white); }
+.market-layout {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 64px; margin-top: 48px;
+}
+.market-list { list-style: none; }
+.market-list li {
+  padding: 16px 0; border-bottom: 1px solid var(--cream-dark);
+  font-size: 15px; display: flex; justify-content: space-between;
+}
+.market-list li strong { color: var(--green); }
+.market-sizing { display: flex; flex-direction: column; gap: 12px; }
+.market-bar {
+  padding: 20px 24px; position: relative;
+  color: var(--white); font-size: 14px;
+}
+.market-bar.tam { background: rgba(27,79,58,0.15); color: var(--green); }
+.market-bar.sam { background: rgba(27,79,58,0.3); color: var(--green-dark); margin-left: 24px; }
+.market-bar.som { background: var(--green); color: var(--gold); margin-left: 48px; font-weight: 700; }
+.market-bar-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px; display: block; margin-bottom: 4px;
+}
+
+/* ═══ FINANCIALS ═══ */
+.financials { padding: 120px 0; background: var(--green-dark); color: var(--cream); }
+.financials h2 { color: var(--gold); }
+.fin-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 32px; margin-top: 48px;
+}
+.fin-card {
+  text-align: center; padding: 36px 24px;
+  border: 1px solid rgba(201,168,76,0.15);
+}
+.fin-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px; color: var(--gold); display: block;
+}
+.fin-sub {
+  font-size: 13px; color: var(--gold-light); margin-top: 4px; display: block;
+}
+.fin-label {
+  font-size: 11px; color: rgba(248,246,240,0.4);
+  text-transform: uppercase; letter-spacing: 1.5px;
+  margin-top: 12px; display: block;
+}
+.fin-footer {
+  margin-top: 40px; text-align: center;
+  font-size: 14px; color: rgba(248,246,240,0.4);
+  border-top: 1px solid rgba(201,168,76,0.1);
+  padding-top: 24px;
+}
+
+/* ═══ CHANNELS ═══ */
+.channels { padding: 120px 0; background: var(--cream); }
+.ch-table {
+  width: 100%; border-collapse: collapse; margin-top: 48px;
+  font-size: 15px;
+}
+.ch-table th {
+  text-align: left; padding: 16px 20px;
+  background: var(--green-dark); color: var(--gold);
+  font-weight: 600; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.ch-table td {
+  padding: 16px 20px; border-bottom: 1px solid var(--cream-dark);
+}
+.ch-table tr:nth-child(even) td { background: var(--white); }
+.ch-table tr:last-child td {
+  font-weight: 700; color: var(--green);
+  border-top: 2px solid var(--gold);
+  background: rgba(201,168,76,0.08);
+}
+.ch-growth { color: var(--gold); font-weight: 600; }
+.ch-note {
+  margin-top: 20px; font-size: 13px; color: var(--text-muted);
+  text-align: center;
+}
+
+/* ═══ ERP ═══ */
+.erp { padding: 120px 0; background: var(--white); }
+.erp-cols {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px; margin-top: 48px;
+}
+.erp-col h3 {
+  font-size: 18px; color: var(--gold);
+  padding-bottom: 12px; margin-bottom: 20px;
+  border-bottom: 1px solid var(--cream-dark);
+}
+.erp-item { margin-bottom: 20px; }
+.erp-item strong {
+  display: block; font-size: 14px; color: var(--green);
+  margin-bottom: 3px;
+}
+.erp-item span {
+  font-size: 13px; color: var(--text-light); line-height: 1.5;
+}
+.erp-footer {
+  margin-top: 48px; padding: 24px 32px;
+  background: var(--green-dark); color: var(--gold);
+  font-size: 13px; text-align: center;
+  letter-spacing: 0.3px; line-height: 1.6;
+}
+
+/* ═══ FORECASTING ═══ */
+.forecast { padding: 120px 0; background: var(--cream); }
+.forecast-layout {
+  display: grid; grid-template-columns: 2fr 3fr;
+  gap: 48px; margin-top: 48px;
+}
+.forecast-accent {
+  background: var(--green-dark); padding: 48px 36px;
+  color: var(--cream); display: flex; flex-direction: column;
+  justify-content: center;
+}
+.forecast-accent p {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-style: italic; line-height: 1.5;
+  color: var(--gold);
+}
+.forecast-items { display: flex; flex-direction: column; gap: 16px; }
+.forecast-item {
+  padding: 16px 20px; background: var(--white);
+  border-left: 3px solid var(--gold);
+}
+.forecast-item strong {
+  display: block; color: var(--green); font-size: 14px;
+  margin-bottom: 3px;
+}
+.forecast-item span { font-size: 13px; color: var(--text-light); }
+
+/* ═══ LOYALTY ═══ */
+.loyalty { padding: 120px 0; background: var(--white); }
+.loyalty-levels {
+  display: flex; gap: 16px; margin-top: 48px; margin-bottom: 40px;
+}
+.loyalty-level {
+  flex: 1; padding: 20px; text-align: center;
+  border: 1px solid var(--cream-dark);
+  position: relative;
+}
+.loyalty-level:not(:last-child)::after {
+  content: '\2192'; position: absolute; right: -14px;
+  top: 50%; transform: translateY(-50%);
+  color: var(--gold); font-size: 18px; z-index: 1;
+}
+.loyalty-level strong {
+  display: block; font-size: 13px; color: var(--green);
+}
+.loyalty-level span {
+  font-size: 11px; color: var(--text-muted);
+}
+.loyalty-features {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  margin-bottom: 40px;
+}
+.loyalty-feature {
+  padding: 16px 20px; background: var(--cream);
+  font-size: 14px; color: var(--text-light);
+}
+.loyalty-feature strong { color: var(--green); display: block; margin-bottom: 4px; }
+.loyalty-hero {
+  background: var(--green-dark); padding: 48px;
+  display: flex; align-items: center; gap: 40px;
+}
+.loyalty-hero-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 96px; color: var(--gold); line-height: 1;
+  white-space: nowrap;
+}
+.loyalty-hero-text { color: rgba(248,246,240,0.7); font-size: 15px; }
+.loyalty-hero-text strong { color: var(--gold); display: block; font-size: 17px; margin-bottom: 8px; }
+
+/* ═══ ANALYTICS ═══ */
+.analytics { padding: 120px 0; background: var(--cream); }
+.analytics-pipeline {
+  margin-top: 48px; display: flex; flex-direction: column;
+  gap: 0;
+}
+.analytics-step {
+  display: grid; grid-template-columns: 48px 1fr;
+  gap: 20px; padding: 20px 0;
+  border-bottom: 1px solid var(--cream-dark);
+}
+.step-num-circle {
+  width: 36px; height: 36px;
+  background: var(--green); display: flex;
+  align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; color: var(--gold); font-weight: 700;
+}
+.analytics-step strong { color: var(--green); }
+.analytics-step span { color: var(--text-light); font-size: 14px; }
+.analytics-kb {
+  margin-top: 32px; padding: 24px 28px;
+  background: var(--white); border-left: 4px solid var(--gold);
+}
+.analytics-kb strong { color: var(--green); display: block; margin-bottom: 6px; }
+.analytics-kb span { color: var(--text-light); font-size: 14px; }
+.analytics-footer {
+  margin-top: 32px; padding: 20px; text-align: center;
+  background: var(--green-dark); color: var(--gold);
+  font-size: 13px;
+}
+
+/* ═══ AI PLATFORM ═══ */
+.ai-platform { padding: 120px 0; background: var(--green-dark); color: var(--cream); }
+.ai-platform h2 { color: var(--gold); }
+.ai-rows { margin-top: 48px; display: flex; flex-direction: column; gap: 24px; }
+.ai-row {
+  display: grid; grid-template-columns: 160px 1fr;
+  gap: 32px; padding: 32px;
+  border: 1px solid rgba(201,168,76,0.12);
+}
+.ai-row-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; color: var(--gold);
+  padding-top: 4px;
+}
+.ai-row-text { font-size: 15px; color: rgba(248,246,240,0.65); line-height: 1.7; }
+.ai-row-text strong { color: var(--cream); }
+.ai-footer {
+  margin-top: 40px; text-align: center;
+  font-size: 13px; color: rgba(248,246,240,0.3);
+  letter-spacing: 0.3px;
+}
+
+/* ═══ AI CLIENTS ═══ */
+.ai-clients { padding: 120px 0; background: var(--white); }
+.ai-client-cards {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px; margin-top: 48px;
+}
+.ai-client-card {
+  padding: 36px 28px; border: 1px solid var(--cream-dark);
+  border-top: 3px solid var(--gold);
+}
+.ai-client-card h3 { font-size: 20px; margin-bottom: 12px; }
+.ai-client-card p { font-size: 14px; color: var(--text-light); }
+
+/* ═══ BEFORE/AFTER ═══ */
+.transform { padding: 120px 0; background: var(--cream); }
+.ba-table {
+  width: 100%; border-collapse: collapse; margin-top: 48px;
+}
+.ba-table th {
+  text-align: left; padding: 14px 20px;
+  font-size: 11px; text-transform: uppercase;
+  letter-spacing: 1.5px; color: var(--text-muted);
+  border-bottom: 2px solid var(--green);
+}
+.ba-table td {
+  padding: 14px 20px; font-size: 14px;
+  border-bottom: 1px solid var(--cream-dark);
+  vertical-align: top;
+}
+.ba-table td:first-child { font-weight: 600; color: var(--green); width: 160px; }
+.ba-table td:nth-child(2) { color: var(--text-muted); }
+.ba-table td:nth-child(3) { color: var(--green); }
+
+/* ═══ SYNERGIES ═══ */
+.synergies { padding: 120px 0; background: var(--green-dark); color: var(--cream); }
+.synergies h2 { color: var(--gold); }
+.syn-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 32px; margin-top: 48px;
+}
+.syn-card {
+  padding: 40px; border: 1px solid rgba(201,168,76,0.15);
+  position: relative;
+}
+.syn-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px; color: rgba(201,168,76,0.15);
+  position: absolute; top: 16px; right: 24px;
+  line-height: 1;
+}
+.syn-card h3 { color: var(--gold); font-size: 20px; margin-bottom: 12px; }
+.syn-card p { font-size: 14px; color: rgba(248,246,240,0.6); line-height: 1.7; }
+
+/* ═══ CTA ═══ */
+.cta {
+  min-height: 60vh; background: var(--green-dark);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; position: relative;
+}
+.cta h2 {
+  font-size: 48px; color: var(--gold); margin-bottom: 16px;
+}
+.cta-sub {
+  font-size: 20px; color: rgba(248,246,240,0.6);
+  margin-bottom: 48px;
+}
+.cta-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; color: var(--gold); letter-spacing: 3px;
+  text-transform: uppercase; opacity: 0.4;
+  margin-top: 64px;
+}
+
+/* ═══ NAV ═══ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 16px 48px; display: flex;
+  justify-content: space-between; align-items: center;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.nav.scrolled {
+  background: rgba(13,43,31,0.95);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+  backdrop-filter: blur(12px);
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px; color: var(--gold);
+}
+.nav-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; color: rgba(201,168,76,0.5);
+  letter-spacing: 2px; text-transform: uppercase;
+}
+
+/* ═══ SITE SECTION ═══ */
+.site-section { padding: 120px 0; background: var(--cream); }
+.site-layout {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 64px; margin-top: 48px;
+}
+.site-metric-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+.site-metric-card {
+  padding: 20px; background: var(--white);
+  border-left: 3px solid var(--gold);
+}
+.site-metric-card strong {
+  display: block; font-size: 14px; color: var(--green);
+  margin-bottom: 3px;
+}
+.site-metric-card span {
+  font-size: 13px; color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 24px; }
+  h2 { font-size: 32px; }
+  .hero h1 { font-size: 42px; }
+  .hero-metrics { gap: 24px; }
+  .hero-metric-num { font-size: 36px; }
+  .thesis-grid, .team-layout, .market-layout,
+  .forecast-layout, .erp-cols, .fin-grid,
+  .syn-grid, .ai-client-cards, .site-layout,
+  .site-metric-grid { grid-template-columns: 1fr; }
+  .loyalty-levels { flex-direction: column; }
+  .loyalty-level::after { display: none; }
+  .ai-row { grid-template-columns: 1fr; }
+  .loyalty-hero { flex-direction: column; text-align: center; }
+  .loyalty-hero-num { font-size: 64px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <span class="nav-logo">БазаЦветов24</span>
+  <span class="nav-tag">Конфиденциально</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>БазаЦветов24</h1>
+    <div class="hero-line"></div>
+    <p class="hero-sub">13.5% рынка цветов Нижнего Новгорода</p>
+    <p class="hero-sub" style="opacity:0.5; font-size:16px;">564 М₽ выручки &middot; 24 магазина &middot; 200 сотрудников &middot; AI-нативное управление</p>
+    <div class="hero-metrics">
+      <div class="hero-metric"><span class="hero-metric-num">564</span><span class="hero-metric-label">М₽ выручка</span></div>
+      <div class="hero-metric"><span class="hero-metric-num">24</span><span class="hero-metric-label">магазина</span></div>
+      <div class="hero-metric"><span class="hero-metric-num">273К</span><span class="hero-metric-label">клиентов</span></div>
+      <div class="hero-metric"><span class="hero-metric-num">13.5%</span><span class="hero-metric-label">доля рынка</span></div>
+      <div class="hero-metric"><span class="hero-metric-num">30</span><span class="hero-metric-label">М₽ товарные остатки</span></div>
+      <div class="hero-metric"><span class="hero-metric-num">6+</span><span class="hero-metric-label">лет данных</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll">scroll</div>
+  <div class="hero-badge">Инвестиционная презентация &middot; 2026</div>
+</section>
+
+<!-- THESIS -->
+<section class="thesis">
+  <div class="container">
+    <span class="section-label reveal">Инвестиционный тезис</span>
+    <h2 class="reveal">Что вы покупаете</h2>
+    <div class="gold-line reveal"></div>
+    <div class="thesis-grid">
+      <div class="thesis-card reveal">
+        <h3>Доля рынка &mdash; 13.5%</h3>
+        <p>24 магазина &mdash; плотнейшая и крупнейшая цветочная сеть Нижнего Новгорода. Равномерное покрытие всех районов города. Создание одного магазина с нуля &mdash; 3&ndash;4 М₽. Воспроизвести 24 точки = 72&ndash;96 М₽ + 3&ndash;5 лет на построение бренда, команды и процессов. Товарные остатки: 30 М₽ — готовый оборотный актив.</p>
+      </div>
+      <div class="thesis-card reveal reveal-delay-1">
+        <h3>273 000 клиентов с полной историей</h3>
+        <p>Полная база: покупки, предпочтения, бонусы, каналы связи. 77 703 в Telegram, подписчики ВКонтакте, Instagram, клиенты мобильного приложения и сайта. LTV лояльного клиента &mdash; 23К₽/год (в 3.5 раза выше обычного). Данные за 6+ лет: 10М+ чеков, 50М+ строк товарных позиций.</p>
+      </div>
+      <div class="thesis-card reveal reveal-delay-2">
+        <h3>AI-нативная операционная система</h3>
+        <p>Полный стек: ERP (90+ модулей) + AI-прогнозирование + аналитика 2 304 часов диалогов/день + динамическое ценообразование + AI-агенты для 200 сотрудников и 273К клиентов. Не прототип &mdash; обслуживает 100% оборота (564 М₽) уже 6 лет. 278 итераций развития.</p>
+      </div>
+      <div class="thesis-card reveal reveal-delay-3">
+        <h3>Готовая инфраструктура для масштабирования</h3>
+        <p>Подключение нового магазина &mdash; 1 день. Обучение нового сотрудника &mdash; на реальных данных и AI-наставнике, не на тренингах. Масштабируется на другие города без доп. разработки. Для крупной сети: plug-and-play интеграция, экономия 50&ndash;100 М₽ и 2&ndash;3 года на построение технологий.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team">
+  <div class="container">
+    <span class="section-label reveal">Команда и покрытие</span>
+    <h2 class="reveal">200 человек &middot; 150 обученных флористов</h2>
+    <div class="gold-line reveal"></div>
+    <div class="team-layout">
+      <div class="reveal">
+        <p style="font-size:17px; color:var(--text-light); margin-bottom:16px;">Устоявшаяся команда переходит вместе с бизнесом. 150 обученных флористов с доменной экспертизой. Полная цифровизация HR: автоматический расчёт зарплат, графики смен с автозакрытием, рейтинги на данных продаж, личные кабинеты с расчётом дохода.</p>
+        <p style="font-size:15px; color:var(--text-muted); margin-bottom:32px;">Стоимость создания одного магазина с нуля: 3&ndash;4 М₽. Товарные остатки по всей сети: 30 М₽ &mdash; готовый оборотный актив. Логистика: собственные маршруты доставки, оптимизированные под географию 24 точек.</p>
+        <div class="team-stats">
+          <div class="team-stat"><span class="team-stat-num">200</span><span class="team-stat-label">сотрудников</span></div>
+          <div class="team-stat"><span class="team-stat-num">150</span><span class="team-stat-label">обученных флористов</span></div>
+          <div class="team-stat"><span class="team-stat-num">24</span><span class="team-stat-label">магазина</span></div>
+          <div class="team-stat"><span class="team-stat-num">100%</span><span class="team-stat-label">покрытие города</span></div>
+        </div>
+      </div>
+      <div class="geo-card reveal reveal-delay-1">
+        <h3>Географическое покрытие</h3>
+        <p>Магазины равномерно расположены по всему Нижнему Новгороду &mdash; каждый район покрыт.</p>
+        <ul>
+          <li><strong>Крупнейшая</strong> цветочная сеть в городе по числу точек</li>
+          <li><strong>Равномерное</strong> покрытие &mdash; конкурентное преимущество логистики</li>
+          <li><strong>Собственная</strong> доставка с оптимизированными маршрутами</li>
+          <li><strong>Plug-and-play</strong> для вашей сети: команда + локации + процессы</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET -->
+<section class="market">
+  <div class="container">
+    <span class="section-label reveal">Компания и рынок</span>
+    <h2 class="reveal">Компания и рынок</h2>
+    <div class="gold-line reveal"></div>
+    <div class="market-layout">
+      <div class="reveal">
+        <h3 style="margin-bottom:24px;">Компания</h3>
+        <ul class="market-list">
+          <li><span>Магазины</span><strong>24 в Нижнем Новгороде</strong></li>
+          <li><span>Выручка 2025</span><strong>564 М₽</strong></li>
+          <li><span>Рост к 2026</span><strong>640+ М₽ (+25%)</strong></li>
+          <li><span>Сотрудники</span><strong>200 человек</strong></li>
+          <li><span>Данные</span><strong>6+ лет (продажи, клиенты, диалоги)</strong></li>
+          <li><span>Цифровизация</span><strong>100% операций</strong></li>
+        </ul>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <h3 style="margin-bottom:24px;">Рынок</h3>
+        <div class="market-sizing">
+          <div class="market-bar tam">
+            <span class="market-bar-num">4.4 млрд ₽</span>
+            TAM &mdash; рынок цветов Нижнего Новгорода
+          </div>
+          <div class="market-bar sam">
+            <span class="market-bar-num">2.1 млрд ₽</span>
+            SAM &mdash; доступный рынок (розница + онлайн)
+          </div>
+          <div class="market-bar som">
+            <span class="market-bar-num">564 М₽</span>
+            SOM &mdash; наша доля 13.5%
+          </div>
+        </div>
+        <p style="margin-top:24px; font-size:14px; color:var(--text-muted);">Рост рынка 8&ndash;12% ежегодно &middot; Конкуренты фрагментированы, без технологий</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINANCIALS -->
+<section class="financials">
+  <div class="container">
+    <span class="section-label reveal" style="color:rgba(201,168,76,0.5);">Финансы</span>
+    <h2 class="reveal">Финансовые показатели</h2>
+    <div class="gold-line reveal"></div>
+    <div class="fin-grid">
+      <div class="fin-card reveal"><span class="fin-num">564</span><span class="fin-sub">М₽</span><span class="fin-label">выручка 2025</span></div>
+      <div class="fin-card reveal reveal-delay-1"><span class="fin-num">86.8</span><span class="fin-sub">М₽</span><span class="fin-label">EBITDA 2026</span></div>
+      <div class="fin-card reveal reveal-delay-2"><span class="fin-num">14.2%</span><span class="fin-sub"></span><span class="fin-label">рентабельность</span></div>
+      <div class="fin-card reveal"><span class="fin-num">2 445</span><span class="fin-sub">₽ / 3 326₽ онлайн</span><span class="fin-label">средний чек</span></div>
+      <div class="fin-card reveal reveal-delay-1"><span class="fin-num">38%</span><span class="fin-sub"></span><span class="fin-label">повторные покупки</span></div>
+      <div class="fin-card reveal reveal-delay-2"><span class="fin-num">2.68</span><span class="fin-sub">раз/год</span><span class="fin-label">частота покупок</span></div>
+    </div>
+    <div class="fin-footer reveal">План 2026: 640+ М₽ &middot; Маркетплейсы: рост &times;2.6 (38 &rarr; 100 М₽) &middot; Онлайн средний чек: 3 326₽</div>
+  </div>
+</section>
+
+<!-- SECTION 7: CHANNELS -->
+<section class="channels">
+  <div class="container">
+    <span class="section-label reveal">Каналы продаж</span>
+    <h2 class="reveal">Мультиканальная торговля</h2>
+    <div class="gold-line reveal"></div>
+    <table class="ch-table reveal">
+      <thead><tr><th>Канал</th><th>Детали</th><th>2025</th><th>2026 план</th><th>Рост</th></tr></thead>
+      <tbody>
+        <tr><td>Офлайн (24 магазина)</td><td>Равномерное покрытие всех районов НН. Каждый магазин с индивидуальной товарной матрицей и ценообразованием</td><td>357 М₽</td><td>400 М₽</td><td class="ch-growth">+12%</td></tr>
+        <tr><td>Сайт bazacvetov24.ru</td><td>50К визитов/мес, конверсия 3.2%, PageSpeed Desktop 92, Elasticsearch, 14 фильтров, 3 типа доставки</td><td>118 М₽</td><td>140 М₽</td><td class="ch-growth">+19%</td></tr>
+        <tr><td>Wildberries</td><td>Рейтинг 4.8, 1 200+ отзывов. Топ-продавец в категории. Полная автосинхронизация остатков и цен</td><td>25 М₽</td><td>60 М₽</td><td class="ch-growth">+140%</td></tr>
+        <tr><td>Ozon</td><td>Рейтинг 4.7. Растущий канал. Автосинхронизация каждые 15 минут. Интеграция через API</td><td>10 М₽</td><td>30 М₽</td><td class="ch-growth">+200%</td></tr>
+        <tr><td>Яндекс.Маркет</td><td>Новый канал 2025 года. Быстрый рост. Интеграция с DBS-моделью и собственной доставкой</td><td>3 М₽</td><td>10 М₽</td><td class="ch-growth">+233%</td></tr>
+        <tr><td>Flowwow</td><td>Специализированная цветочная площадка. Высокая конверсия в целевой аудитории</td><td>10 М₽</td><td>20 М₽</td><td class="ch-growth">+100%</td></tr>
+        <tr><td>Telegram + соцсети</td><td>77 703 в TG, ВКонтакте, Instagram. AI-агент принимает заказы 24/7. Прямые продажи через мессенджеры</td><td>8 М₽</td><td>20 М₽</td><td class="ch-growth">+150%</td></tr>
+        <tr><td><strong>Итого</strong></td><td></td><td><strong>531 М₽</strong></td><td><strong>680 М₽</strong></td><td class="ch-growth"><strong>+28%</strong></td></tr>
+      </tbody>
+    </table>
+    <p class="ch-note reveal">Автосинхронизация остатков/цен/заказов каждые 15 минут по всем маркетплейсам &middot; Единый OMS (Order Management System) &middot; Cloudflare CDN &middot; 99.9% uptime интеграций</p>
+  </div>
+</section>
+
+<!-- SECTION 8: ERP -->
+<section class="erp">
+  <div class="container">
+    <span class="section-label reveal">Управление бизнесом</span>
+    <h2 class="reveal">ERP: 90+ модулей &middot; 389 бизнес-моделей &middot; 6 лет в production</h2>
+    <div class="gold-line reveal"></div>
+    <div class="erp-cols">
+      <div class="reveal">
+        <h3>Управление операциями</h3>
+        <div class="erp-item"><strong>Единый центр управления</strong><span>24 магазина, склад, доставка, онлайн &mdash; одна панель. Решение за минуты, не часы. Полная картина бизнеса в реальном времени.</span></div>
+        <div class="erp-item"><strong>Обработка продаж</strong><span>10М+ чеков в реальном времени. Каждая продажа привязана к сотруднику, клиенту, магазину, времени, каналу. Полная прослеживаемость.</span></div>
+        <div class="erp-item"><strong>Склад и остатки</strong><span>Остатки по SKU в каждом магазине, приход от поставщиков, перемещения между магазинами, списания (порча, брак, образцы), инвентаризация с актами.</span></div>
+        <div class="erp-item"><strong>Заказы и доставка</strong><span>Приём заказов с сайта, маркетплейсов, Telegram, WhatsApp. Подтверждение, сборка, назначение курьера, доставка, трекинг клиенту, обработка возвратов.</span></div>
+        <div class="erp-item"><strong>Логистика</strong><span>Управление машинами доставки, оптимизация маршрутов, зоны доставки (НН + 15 км). Три типа: стандартная (2&ndash;4ч), экспресс (1&ndash;2ч), самовывоз.</span></div>
+        <div class="erp-item"><strong>Омниканальные продажи</strong><span>Единая система для: сайт + Wildberries + Ozon + Яндекс.Маркет + Flowwow + Telegram + ВКонтакте + Instagram + WhatsApp. Синхронизация каждые 15 минут.</span></div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <h3>Управление персоналом</h3>
+        <div class="erp-item"><strong>Автоматический расчёт зарплаты</strong><span>Расчёт по правилам: лейблы категорий (стажёр, флорист, старший), бонусы за продажи, премии за рейтинг, штрафы за нарушения. Генерация ведомостей.</span></div>
+        <div class="erp-item"><strong>Личный кабинет сотрудника</strong><span>Каждый из 200 сотрудников видит: расчёт дохода за период, текущий рейтинг, график смен, историю продаж, начисления и удержания.</span></div>
+        <div class="erp-item"><strong>Графики смен</strong><span>Составление расписания, чекин/чекаут, автозакрытие смены через 14 часов (штраф 5 баллов за нарушение). Контроль переработок.</span></div>
+        <div class="erp-item"><strong>Рейтинги сотрудников</strong><span>Объективная оценка на данных: продажи, средний чек, допродажи, качество обслуживания (из транскрибации диалогов). Не мнение &mdash; метрики.</span></div>
+        <div class="erp-item"><strong>Роли и права доступа (RBAC)</strong><span>6 ролей: admin, manager, florist, warehouse, hr, support. Гранулярные права на каждую операцию. Журнал действий.</span></div>
+        <div class="erp-item"><strong>WorkBot (Telegram)</strong><span>Корпоративный бот для 100+ сотрудников: просмотр заказов, проверка остатков, табель рабочего времени, запросы в HR, техподдержка. Работает 24/7.</span></div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <h3>Финансы, товары и аналитика</h3>
+        <div class="erp-item"><strong>Товарная матрица</strong><span>Индивидуальный ассортимент под каждый магазин: минимальные остатки по SKU, ABC-анализ, конфигурация под локацию, трафик и конкурентное окружение.</span></div>
+        <div class="erp-item"><strong>Клиентская база: 273К</strong><span>Полная история покупок, предпочтения по цветам и поводам, бонусный баланс, каналы связи. 14 поводов покупки: от дня рождения до соболезнования.</span></div>
+        <div class="erp-item"><strong>Себестоимость и маржинальность</strong><span>Расчёт себестоимости по каждой позиции, маржинальность по магазинам &mdash; вплоть до уровня одной розы. P&L по каждому магазину.</span></div>
+        <div class="erp-item"><strong>1С интеграция</strong><span>Двусторонний автоматический обмен каждый час: чеки, цены, номенклатура, остатки. Бесшовная синхронизация с бухгалтерией.</span></div>
+        <div class="erp-item"><strong>BI-дашборды (Metabase)</strong><span>Аналитика в реальном времени: выручка, конверсия, средний чек, рейтинги, остатки. Выгрузки в Excel, автоматические отчёты по расписанию.</span></div>
+        <div class="erp-item"><strong>Безопасность и аудит</strong><span>Полное логирование всех операций, anti-fraud контроль, аудит действий пользователей, RBAC на уровне каждого модуля.</span></div>
+      </div>
+    </div>
+    <div class="erp-footer reveal">389 моделей &middot; 90+ модулей &middot; 278 итераций &middot; 3 API (REST, Advanced, Legacy) &middot; SLA 99.5% &middot; Response time &lt;200ms &middot; Docker-контейнеризация &middot; CI/CD через GitHub Actions &middot; Sentry + Grafana + ELK мониторинг &middot; Подключение нового магазина за 1 день</div>
+  </div>
+</section>
+
+<!-- SECTION 9: SITE -->
+<section class="site-section">
+  <div class="container">
+    <span class="section-label reveal">Интернет-магазин</span>
+    <h2 class="reveal">Сайт bazacvetov24.ru: 118 М₽ выручки &middot; 50К визитов/мес</h2>
+    <div class="gold-line reveal"></div>
+    <div class="site-layout">
+      <div class="reveal">
+        <h3 style="margin-bottom:24px;">Функционал</h3>
+        <div class="erp-item"><strong>Каталог с умным поиском</strong><span>Elasticsearch: полнотекстовый поиск, автодополнение, 14 фильтров по поводу (день рождения, свадьба, 8 марта, юбилей, выпускной, 1 сентября, 14 февраля, новый год, соболезнование и др.).</span></div>
+        <div class="erp-item"><strong>Корзина и оформление</strong><span>Checkout за 5 шагов: выбор &rarr; адрес &rarr; дата/время &rarr; оплата &rarr; подтверждение. Промокоды, применение бонусов, подарочные сертификаты.</span></div>
+        <div class="erp-item"><strong>Оплата</strong><span>Юкасса: карта (2.8%), СБП (0.4%), оплата при получении. Автоматический возврат при отмене. PCI DSS compliance.</span></div>
+        <div class="erp-item"><strong>Личный кабинет клиента</strong><span>История заказов, сохранённые адреса, бонусный баланс, избранные букеты, памятные даты, управление подписками на уведомления.</span></div>
+        <div class="erp-item"><strong>3 типа доставки</strong><span>Стандартная (300₽, 2&ndash;4ч) &middot; Экспресс (500₽, 1&ndash;2ч) &middot; Самовывоз (бесплатно). Зона доставки: НН + 15 км. Трекинг в реальном времени.</span></div>
+        <div class="erp-item"><strong>SEO и мобильная версия</strong><span>Schema.org микроразметка, XML Sitemap, ЧПУ-адреса, адаптивная вёрстка. Мобильный трафик &mdash; 68% посещений.</span></div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <h3 style="margin-bottom:24px;">Метрики и технологии</h3>
+        <div class="site-metric-grid">
+          <div class="site-metric-card"><strong>118 М₽</strong><span>Выручка через сайт</span></div>
+          <div class="site-metric-card"><strong>3.2%</strong><span>Конверсия</span></div>
+          <div class="site-metric-card"><strong>2 350₽</strong><span>Средний чек (+12% YoY)</span></div>
+          <div class="site-metric-card"><strong>50К</strong><span>Визитов в месяц</span></div>
+          <div class="site-metric-card"><strong>Mobile 78</strong><span>PageSpeed Score</span></div>
+          <div class="site-metric-card"><strong>Desktop 92</strong><span>PageSpeed Score</span></div>
+          <div class="site-metric-card"><strong>180ms</strong><span>TTFB (Time to First Byte)</span></div>
+          <div class="site-metric-card"><strong>1.8s</strong><span>LCP (Largest Contentful Paint)</span></div>
+        </div>
+        <div style="margin-top:24px;">
+          <div class="erp-item"><strong>Аналитика</strong><span>Яндекс.Метрика, Google Analytics 4, Facebook Pixel, VK Pixel, Roistat &mdash; сквозная аналитика от клика до покупки.</span></div>
+          <div class="erp-item"><strong>Безопасность</strong><span>HTTPS, Content Security Policy, защита от XSS/CSRF, WAF (Cloudflare), соответствие ФЗ-152 (персональные данные) и ФЗ-54 (онлайн-кассы).</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 10: LOYALTY -->
+<section class="loyalty" style="background:var(--green-dark);">
+  <div class="container">
+    <span class="section-label reveal" style="color:rgba(201,168,76,0.5);">Лояльность</span>
+    <h2 class="reveal" style="color:var(--gold);">Программа лояльности: 91 функция &middot; 273К клиентов</h2>
+    <div class="gold-line reveal"></div>
+
+    <div class="loyalty-levels reveal">
+      <div class="loyalty-level" style="background:rgba(248,246,240,0.05); border-color:rgba(201,168,76,0.2);">
+        <strong style="color:var(--gold-light);">Silver</strong>
+        <span style="color:rgba(248,246,240,0.5);">10% кэшбек &middot; Базовый уровень</span>
+      </div>
+      <div class="loyalty-level" style="background:rgba(248,246,240,0.05); border-color:rgba(201,168,76,0.2);">
+        <strong style="color:var(--gold);">Gold</strong>
+        <span style="color:rgba(248,246,240,0.5);">12% кэшбек &middot; Приоритетная доставка</span>
+      </div>
+      <div class="loyalty-level" style="background:rgba(248,246,240,0.05); border-color:rgba(201,168,76,0.2);">
+        <strong style="color:var(--gold);">Platinum</strong>
+        <span style="color:rgba(248,246,240,0.5);">15% кэшбек &middot; Эксклюзивные букеты</span>
+      </div>
+      <div class="loyalty-level" style="background:rgba(248,246,240,0.05); border-color:rgba(201,168,76,0.2);">
+        <strong style="color:var(--gold);">Diamond</strong>
+        <span style="color:rgba(248,246,240,0.5);">20% кэшбек &middot; VIP-обслуживание</span>
+      </div>
+    </div>
+
+    <div class="loyalty-features reveal" style="margin-bottom:40px;">
+      <div class="loyalty-feature" style="background:rgba(248,246,240,0.05); color:rgba(248,246,240,0.65);">
+        <strong style="color:var(--gold);">Начисление бонусов</strong>
+        10% кэшбек (срок действия 366 дней) + 20% на первую покупку (90 дней). Бонусами можно оплатить до 50% заказа.
+      </div>
+      <div class="loyalty-feature" style="background:rgba(248,246,240,0.05); color:rgba(248,246,240,0.65);">
+        <strong style="color:var(--gold);">Приветственный бонус 600₽</strong>
+        200₽ за регистрацию + 200₽ за подтверждение email/телефона + 200₽ после первой покупки. Активация нового клиента за 3 шага.
+      </div>
+      <div class="loyalty-feature" style="background:rgba(248,246,240,0.05); color:rgba(248,246,240,0.65);">
+        <strong style="color:var(--gold);">Реактивация &laquo;спящих&raquo;</strong>
+        Каскад D-30 (5% скидка), D-60 (10% скидка), D-90 (15% + бесплатная доставка). Сегментация по LTV: высокий/средний/низкий &mdash; разные офферы.
+      </div>
+      <div class="loyalty-feature" style="background:rgba(248,246,240,0.05); color:rgba(248,246,240,0.65);">
+        <strong style="color:var(--gold);">Памятные даты (91% клиентов хотят)</strong>
+        Дни рождения, годовщины, свадьбы &mdash; авто-напоминания за 3 и 7 дней с персонализированными предложениями. Конверсия напоминаний &mdash; 18%.
+      </div>
+      <div class="loyalty-feature" style="background:rgba(248,246,240,0.05); color:rgba(248,246,240,0.65);">
+        <strong style="color:var(--gold);">14 поводов покупки</strong>
+        День рождения, юбилей, свадьба, годовщина, 8 марта, 14 февраля, 1 сентября, выпускной, новый год, рождество, пасха, новоселье, выздоровление, соболезнование. Персонализация по истории.
+      </div>
+      <div class="loyalty-feature" style="background:rgba(248,246,240,0.05); color:rgba(248,246,240,0.65);">
+        <strong style="color:var(--gold);">Каскад коммуникаций (8 каналов)</strong>
+        Telegram &rarr; ВКонтакте &rarr; Instagram &rarr; Push (приложение) &rarr; Сайт (ЛК) &rarr; SMS &rarr; WhatsApp &rarr; Email. От бесплатных к платным. Frequency Cap: max 1&ndash;2 рассылки/неделю.
+      </div>
+      <div class="loyalty-feature" style="background:rgba(248,246,240,0.05); color:rgba(248,246,240,0.65);">
+        <strong style="color:var(--gold);">Реферальная программа</strong>
+        300₽ за каждого приведённого друга (мин. чек друга 2 000₽). Друг также получает 300₽. Двойная мотивация. Органический рост базы без рекламных расходов.
+      </div>
+      <div class="loyalty-feature" style="background:rgba(248,246,240,0.05); color:rgba(248,246,240,0.65);">
+        <strong style="color:var(--gold);">Anti-fraud: 5 уровней защиты</strong>
+        Блокировка массовых заказов, детекция аномалий, лимиты на начисление, IP-контроль, ручная верификация подозрительных операций. СБП интеграция: 0.4% vs 2.8% на карте.
+      </div>
+    </div>
+
+    <div class="loyalty-hero reveal">
+      <div class="loyalty-hero-num">&times;3.5</div>
+      <div class="loyalty-hero-text">
+        <strong>Рост частоты покупок у лояльных клиентов</strong>
+        LTV 23К₽ vs 6.5К₽ &middot; 77 703 в Telegram &middot; Прогноз: +20М₽ (год 1) &rarr; +60М₽ (год 3) &middot; Bundle-предложения: букет &times;2 с кэшбэком, комбо-скидки
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 11: FORECASTING -->
+<section class="forecast">
+  <div class="container">
+    <span class="section-label reveal">Прогнозирование и закупки</span>
+    <h2 class="reveal">AI-прогнозирование: 71 функция &middot; Prophet + XGBoost</h2>
+    <div class="gold-line reveal"></div>
+    <div class="forecast-layout">
+      <div class="forecast-accent reveal">
+        <p>Цветы живут 5&ndash;7 дней. Каждый процент снижения списаний &mdash; прямая прибыль.</p>
+        <p style="font-size:16px; margin-top:20px; color:rgba(248,246,240,0.6); font-family:'Source Sans 3',sans-serif; font-style:normal;">Текущие списания: 5.22% (27.4 М₽/год). Цель: 3% &mdash; экономия 6&ndash;9 М₽/год. Конкуренты закупают &laquo;на глаз&raquo;. Мы &mdash; по модели с 6+ годами данных.</p>
+      </div>
+      <div class="forecast-items">
+        <div class="forecast-item reveal"><strong>Прогноз спроса (Prophet + XGBoost)</strong><span>AI-модель по магазину &times; позиции &times; неделе. 20+ ML-фичей: сезонность, праздники, погода, день недели, лаги, скользящие средние, ёмкость магазина, локация, конкурентное окружение.</span></div>
+        <div class="forecast-item reveal reveal-delay-1"><strong>Динамическое ценообразование</strong><span>Цена = f(конкуренты, себестоимость, конверсия, остатки, день недели, погода). Мониторинг конкурентов в реальном времени. +3&ndash;8% маржи без потери объёмов.</span></div>
+        <div class="forecast-item reveal reveal-delay-1"><strong>Конверсия через видеонаблюдение</strong><span>% покупателей vs. посетителей как входной параметр для ценообразования и ассортимента. Привязка к чекам &mdash; 99%. Алерт: &laquo;подошёл к кассе &mdash; нет чека&raquo;.</span></div>
+        <div class="forecast-item reveal reveal-delay-2"><strong>Автопланограмма</strong><span>Автоматическая выкладка товара. AI-модель под каждый магазин: площадь витрины, проходимость, конкурентное окружение, средний чек по зонам. Обновление еженедельно.</span></div>
+        <div class="forecast-item reveal reveal-delay-2"><strong>Автоделение товара при недопоставке</strong><span>Пришло 900 вместо 1000 &rarr; автоматическая приоритизация по спросу и маржинальности. Распределение по магазинам с учётом текущих остатков и прогнозов.</span></div>
+        <div class="forecast-item reveal reveal-delay-3"><strong>Погодный индекс</strong><span>Коэффициент 0.7&ndash;1.2 для корректировки прогнозов. Дождь, температура, снег, ветер. API погоды &rarr; автоматическая корректировка заказов поставщикам.</span></div>
+        <div class="forecast-item reveal reveal-delay-3"><strong>ABC/XYZ-анализ</strong><span>Ежемесячная переклассификация всего ассортимента. Выбор поставщика: надёжность + цена + lead time. Автоматические заказы для категории AA.</span></div>
+        <div class="forecast-item reveal reveal-delay-4"><strong>20+ ML-фичей в модели</strong><span>Сезонность (годовая, месячная, недельная), праздничные коэффициенты (14 поводов), погода, день недели, лаги продаж, скользящие окна (7/14/30 дней), ёмкость магазина, геолокация, конкуренты в радиусе.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 12: ANALYTICS (TRANSCRIPTION) -->
+<section class="analytics">
+  <div class="container">
+    <span class="section-label reveal">Аналитика диалогов</span>
+    <h2 class="reveal">Транскрибация и развитие персонала: 2 304 часа аудио &middot; 56 функций</h2>
+    <div class="gold-line reveal"></div>
+    <div class="analytics-pipeline">
+      <div class="analytics-step reveal">
+        <div class="step-num-circle">1</div>
+        <div><strong>Захват аудио</strong> &mdash; <span>9 216 файлов/день с 24 магазинов. IP-камеры с микрофонами, 15-минутные сегменты. Хранение в MinIO (S3-совместимое). Автоматическая ротация: 90 дней горячие, архив &mdash; холодное хранилище. 2 304 часа аудио ежедневно.</span></div>
+      </div>
+      <div class="analytics-step reveal">
+        <div class="step-num-circle">2</div>
+        <div><strong>AI-транскрибация</strong> &mdash; <span>Whisper large-v3 + GigaChat + LoRA-адаптер с доменным словарём: цветы, букеты, аксессуары, названия сортов, флористическая терминология. Точность распознавания 94%+ на доменной лексике. Разделение спикеров (diarization).</span></div>
+      </div>
+      <div class="analytics-step reveal">
+        <div class="step-num-circle">3</div>
+        <div><strong>NLU-анализ (Claude API)</strong> &mdash; <span>Оценка 5 критериев обслуживания: приветствие, выявление потребности, презентация ассортимента, допродажи, прощание. Классификация причин отказов: цена (32%), ассортимент (28%), сервис (18%), конкуренты (12%), другое (10%). Анализ тона общения и эмоций клиента.</span></div>
+      </div>
+      <div class="analytics-step reveal">
+        <div class="step-num-circle">4</div>
+        <div><strong>Персональный профиль сотрудника</strong> &mdash; <span>База данных по каждому из 200 сотрудников: сильные стороны, зоны роста, динамика за месяцы. Сравнение с лучшими в магазине, по сети, по категории. Не мнение руководителя &mdash; объективные данные.</span></div>
+      </div>
+      <div class="analytics-step reveal">
+        <div class="step-num-circle">5</div>
+        <div><strong>Карта адаптации и обучение</strong> &mdash; <span>Автоматический трекинг новичка с первого дня. Разбор собственных диалогов: 5 лучших + 5 худших за неделю. Обучение на своих ошибках, не на абстрактных тренингах. AI-наставник формирует индивидуальный план развития.</span></div>
+      </div>
+      <div class="analytics-step reveal">
+        <div class="step-num-circle">6</div>
+        <div><strong>Предотвращение потерь</strong> &mdash; <span>Привязка диалогов к чекам &mdash; 99%. Алерт: &laquo;подошёл к кассе &mdash; нет чека&raquo;. Конверсия через видеонаблюдение: % посетителей → % покупателей. Детекция подозрительных паттернов: отмены, возвраты, скидки без основания.</span></div>
+      </div>
+    </div>
+    <div class="analytics-kb reveal">
+      <strong>Корпоративная база знаний</strong>
+      <span>Все бизнес-процессы, регламенты, скрипты продаж, инструкции по отделам &mdash; в AI-индексе. RAG-система: агенты сотрудников ищут ответы в базе знаний за секунды. Постоянное обновление на основе лучших практик из транскрибации.</span>
+    </div>
+    <div style="margin-top:24px; padding:24px 28px; background:var(--white); border-left:4px solid var(--gold);" class="reveal">
+      <strong style="color:var(--green); display:block; margin-bottom:6px;">Dashboard (Retool)</strong>
+      <span style="color:var(--text-light); font-size:14px;">Качество обслуживания по магазинам, топ-5 лучших и худших сотрудников за неделю, топ-10 проблемных продавцов с рекомендациями, динамика жалоб по категориям, причины отказов по магазинам, сравнение периодов.</span>
+    </div>
+    <div class="analytics-footer reveal">Единственная в отрасли: конверсия офлайн-магазина на уровне каждого диалога &middot; 56 функций &middot; доменный словарь 1 500+ терминов &middot; масштаб: 24 &rarr; 240 магазинов без изменения архитектуры</div>
+  </div>
+</section>
+
+<!-- SECTION 13: AI PLATFORM -->
+<section class="ai-platform">
+  <div class="container">
+    <span class="section-label reveal" style="color:rgba(201,168,76,0.5);">AI-платформа</span>
+    <h2 class="reveal">500+ функций в 8 системах: операционная система компании на базе AI</h2>
+    <div class="gold-line reveal"></div>
+    <div class="ai-rows">
+      <div class="ai-row reveal">
+        <div class="ai-row-label">Клиенты</div>
+        <div class="ai-row-text"><strong>AI-агент 24/7</strong> во всех каналах: Telegram (77 703), ВКонтакте, Instagram, WhatsApp, сайт (виджет), мобильное приложение (Push), MaxKB-чат. Подбор букета по поводу и бюджету, статус заказа, оформление доставки, ответы на вопросы, генерация открыток и видео-поздравлений. Единый AI-агент обучен на данных компании: 3 000+ позиций, цены, акции, зоны доставки, время работы. Продажи через все соцсети и мессенджеры &mdash; автоматизация через LLM-модели.</div>
+      </div>
+      <div class="ai-row reveal reveal-delay-1">
+        <div class="ai-row-label">Сотрудники</div>
+        <div class="ai-row-text"><strong>Персональный AI-ассистент</strong> для каждого из 200 сотрудников. Финансист &mdash; агент с финансовыми скиллами и доступом к P&L. Закупщик &mdash; агент с данными остатков, поставщиков и прогнозов. Флорист &mdash; агент с историей диалогов и рейтингом. <strong>WorkBot (Telegram):</strong> заказы, остатки, табель, поддержка для 100+ сотрудников. <strong>Корпоративная база знаний:</strong> все регламенты, скрипты, инструкции в AI-индексе &mdash; ответ за секунды. &times;2-3 производительность без найма.</div>
+      </div>
+      <div class="ai-row reveal reveal-delay-2">
+        <div class="ai-row-label">Руководство</div>
+        <div class="ai-row-text"><strong>Проактивные алерты:</strong> &laquo;магазин №7 потерял 3 продажи из-за отсутствия роз&raquo;, &laquo;хризантемы заканчиваются &mdash; заказ нужен сегодня&raquo;, &laquo;сотрудник Иванова &mdash; 3 негативных отзыва за неделю&raquo;. AI-генерация дашбордов и отчётов в реальном времени. Визуализация данных из ERP, транскрибации и прогнозирования в единой панели.</div>
+      </div>
+    </div>
+    <div class="ai-footer reveal">RAG на данных компании &middot; различные LLM под разные задачи &middot; 500+ функций в 8 системах (ERP, сайт, бонусная, прогнозирование, транскрибация, AI-агенты, маркетплейсы, аналитика) &middot; масштабируется от 11 до 1100 сотрудников &middot; стоимость на человека падает с ростом</div>
+  </div>
+</section>
+
+<!-- SECTION 14: AI CLIENTS -->
+<section class="ai-clients">
+  <div class="container">
+    <span class="section-label reveal">AI для клиентов</span>
+    <h2 class="reveal">Новый канал монетизации и удержания</h2>
+    <div class="gold-line reveal"></div>
+    <div class="ai-client-cards">
+      <div class="ai-client-card reveal">
+        <h3>AI-чат во всех каналах</h3>
+        <p>Подбор букета по поводу, генерация персональных открыток, видео-поздравления. Работает 24/7 в Telegram, ВКонтакте, Instagram, WhatsApp, на сайте (виджет), в мобильном приложении. Вовлечение клиента между покупками &mdash; не только продажи, но и эмоциональная связь. 77К в Telegram + подписчики всех соцсетей &mdash; готовая аудитория.</p>
+      </div>
+      <div class="ai-client-card reveal reveal-delay-1">
+        <h3>Двойная валюта</h3>
+        <p>Бонусы BC24 (за покупки, кэшбек 10&ndash;20%) + Спарки (за AI-активности: генерация открыток, прохождение квизов, отзывы). Кросс-реферальная система: пригласил друга &rarr; оба получают бонусы + спарки. Геймификация удержания.</p>
+      </div>
+      <div class="ai-client-card reveal reveal-delay-2">
+        <h3>Telegram-ускоритель</h3>
+        <p>Собственный прокси-сервер для клиентов. Привлечение через решение проблемы блокировок. Вирусный рост базы без рекламных расходов. Пользователь получает стабильный Telegram &mdash; и оказывается в экосистеме BC24.</p>
+      </div>
+    </div>
+    <p class="reveal" style="text-align:center; margin-top:32px; font-size:14px; color:var(--text-muted);">Масштабируется на любой retail &middot; дополнительная монетизация без увеличения CAC &middot; 8 каналов коммуникации &middot; AI обучен на 6+ годах данных компании</p>
+  </div>
+</section>
+
+<!-- SECTION 15: TRANSFORM -->
+<section class="transform">
+  <div class="container">
+    <span class="section-label reveal">Трансформация</span>
+    <h2 class="reveal">Что меняет AI-инфраструктура</h2>
+    <div class="gold-line reveal"></div>
+    <table class="ba-table reveal">
+      <thead><tr><th>Процесс</th><th>Конкуренты (до)</th><th>БазаЦветов24 (после)</th></tr></thead>
+      <tbody>
+        <tr><td>Ответ клиенту</td><td>Ожидание оператора, рабочие часы, 1 канал (телефон)</td><td>AI-агент 24/7, 8 каналов (TG, VK, IG, WA, сайт, приложение, SMS, Email), мгновенно</td></tr>
+        <tr><td>Закупки</td><td>Excel + интуиция, перезаказ или дефицит</td><td>AI-прогноз Prophet+XGBoost по магазину &times; позиции &times; неделе, 20+ ML-фичей</td></tr>
+        <tr><td>Ценообразование</td><td>Единая цена для всех магазинов</td><td>Динамическая per store: конкуренты &times; конверсия &times; остатки &times; погода. +3&ndash;8% маржи</td></tr>
+        <tr><td>Контроль качества</td><td>Тайный покупатель 1 раз/мес</td><td>Каждый диалог каждый день: 2 304 часа, 5 критериев, NLU-анализ причин отказов</td></tr>
+        <tr><td>Отчётность</td><td>Сбор руками раз в неделю</td><td>Автоматическая генерация в реальном времени, BI-дашборды, алерты</td></tr>
+        <tr><td>Обучение персонала</td><td>Тренинги раз в квартал, абстрактные</td><td>Персональные разборы на реальных диалогах ежедневно, AI-наставник</td></tr>
+        <tr><td>Зарплаты</td><td>Ручной ввод в бухгалтерии</td><td>Автоматический расчёт по правилам + личный кабинет + рейтинги на данных</td></tr>
+        <tr><td>Коммуникация с клиентами</td><td>Только телефон, ручные SMS-рассылки</td><td>8-канальный омниканал: TG &rarr; VK &rarr; IG &rarr; Push &rarr; Сайт &rarr; SMS &rarr; WA &rarr; Email. Каскад, Frequency Cap, персонализация</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 16: KEY ADVANTAGES -->
+<section class="erp" style="background:var(--cream);">
+  <div class="container">
+    <span class="section-label reveal">Ключевые преимущества</span>
+    <h2 class="reveal">Что получает крупная сеть при покупке</h2>
+    <div class="gold-line reveal"></div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:48px;">
+
+      <div class="reveal" style="padding:36px; background:var(--white); border-top:4px solid var(--gold);">
+        <h3 style="font-size:20px; color:var(--gold); margin-bottom:16px;">Материальные активы</h3>
+        <div class="erp-item"><strong>24 магазина в каждом районе НН</strong><span>Арендованные помещения с отработанными локациями. Создание одного магазина = 3&ndash;4 М₽. Воспроизвести все 24 = 72&ndash;96 М₽ + 3&ndash;5 лет на отладку процессов, набор команды, построение бренда.</span></div>
+        <div class="erp-item"><strong>Товарные остатки: 30 М₽</strong><span>Готовый оборотный актив. Ассортимент сформирован под каждый магазин по данным ABC/XYZ-анализа и 6+ лет продаж.</span></div>
+        <div class="erp-item"><strong>200 сотрудников</strong><span>150 обученных флористов + управление + логистика + IT. Команда переходит с бизнесом. Полностью цифровизированный HR.</span></div>
+        <div class="erp-item"><strong>Собственная логистика</strong><span>Маршруты доставки оптимизированы под географию 24 точек. 3 типа доставки. Управление машинами через ERP.</span></div>
+      </div>
+
+      <div class="reveal reveal-delay-1" style="padding:36px; background:var(--white); border-top:4px solid var(--green);">
+        <h3 style="font-size:20px; color:var(--green); margin-bottom:16px;">Технологические активы</h3>
+        <div class="erp-item"><strong>ERP-система (90+ модулей, 389 моделей)</strong><span>Склад, продажи, заказы, зарплата, рейтинги, личные кабинеты, BI-дашборды, 1С-интеграция, WorkBot. 6 лет в production, SLA 99.5%, &lt;200ms.</span></div>
+        <div class="erp-item"><strong>AI-прогнозирование (71 функция)</strong><span>Спрос (Prophet+XGBoost), ценообразование, автопланограмма, автоделение, погодный индекс. Обучено на 6+ годах и 10М+ чеков.</span></div>
+        <div class="erp-item"><strong>Аналитика диалогов (56 функций)</strong><span>2 304 часа/день. Whisper+GigaChat+Claude. NLU-оценка, персональные профили, карты адаптации, предотвращение потерь.</span></div>
+        <div class="erp-item"><strong>AI-платформа (500+ функций)</strong><span>Агенты для сотрудников и клиентов. 8 каналов. RAG на данных компании. Масштабируется от 11 до 1100 человек.</span></div>
+      </div>
+
+      <div class="reveal" style="padding:36px; background:var(--white); border-top:4px solid var(--gold);">
+        <h3 style="font-size:20px; color:var(--gold); margin-bottom:16px;">Клиентские активы</h3>
+        <div class="erp-item"><strong>273 000 клиентов с полной историей</strong><span>Покупки, предпочтения, бонусы, каналы связи за 6+ лет. 10М+ чеков, 50М+ товарных строк, 14 поводов покупки.</span></div>
+        <div class="erp-item"><strong>77 703 в Telegram</strong><span>Прямой бесплатный канал коммуникации. LTV: 23К₽/год vs 6.5К₽ у обычного клиента. &times;3.5 рост частоты покупок.</span></div>
+        <div class="erp-item"><strong>Омниканальное покрытие (8 каналов)</strong><span>Telegram &middot; ВКонтакте &middot; Instagram &middot; WhatsApp &middot; Мобильное приложение &middot; Сайт &middot; SMS &middot; Email &mdash; единый каскад коммуникации.</span></div>
+        <div class="erp-item"><strong>Бонусная программа (91 функция)</strong><span>4 уровня, реферальная система, 14 поводов, anti-fraud 5 уровней. Прогноз: +20М₽ (год 1) &rarr; +60М₽ (год 3).</span></div>
+      </div>
+
+      <div class="reveal reveal-delay-1" style="padding:36px; background:var(--white); border-top:4px solid var(--green);">
+        <h3 style="font-size:20px; color:var(--green); margin-bottom:16px;">Рыночная позиция</h3>
+        <div class="erp-item"><strong>13.5% рынка НН</strong><span>Крупнейшая доля среди цветочных сетей города. Конкуренты фрагментированы, без технологий и AI. Рост рынка 8&ndash;12%/год.</span></div>
+        <div class="erp-item"><strong>Географическая монополия</strong><span>Равномерное покрытие всех районов. Конкурентное преимущество: доставка быстрее, магазин ближе, охват полный.</span></div>
+        <div class="erp-item"><strong>Бренд и репутация</strong><span>WB рейтинг 4.8 (1 200+ отзывов), Ozon 4.7. Узнаваемость в городе. 6+ лет стабильного присутствия на рынке.</span></div>
+        <div class="erp-item"><strong>Мультиканальный рост</strong><span>План: 531 &rarr; 680 М₽ (+28%). Маркетплейсы: &times;2.6 за год. Сайт: +19%. Соцсети и мессенджеры: +150%.</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 17: SYNERGIES -->
+<section class="synergies">
+  <div class="container">
+    <span class="section-label reveal" style="color:rgba(201,168,76,0.5);">Выгоды для покупателя</span>
+    <h2 class="reveal">Почему это выгодно вашей сети</h2>
+    <div class="gold-line reveal"></div>
+    <div class="syn-grid">
+      <div class="syn-card reveal">
+        <span class="syn-num">01</span>
+        <h3>Сокращение расходов</h3>
+        <p>Готовая инфраструктура: ERP (90+ модулей) + AI-прогнозирование (71 функция) + аналитика диалогов (56 функций) + бонусная система (91 функция) + AI-агенты + 8 каналов продаж. Не нужно строить с нуля &rarr; экономия 50&ndash;100 М₽ и 2&ndash;3 года. Сокращение административного персонала: авторасчёт зарплат, контроль смен, BI-отчётность, AI-ответы клиентам &mdash; всё автоматизировано. Снижение списаний: 5.22% &rarr; 3% = экономия 6&ndash;9 М₽/год. Стоимость создания 24 магазинов с нуля: 72&ndash;96 М₽ + 30 М₽ товарных остатков = 102&ndash;126 М₽.</p>
+      </div>
+      <div class="syn-card reveal reveal-delay-1">
+        <span class="syn-num">02</span>
+        <h3>Усиление вашей сети</h3>
+        <p>24 магазина + 200 человек (150 обученных флористов) + 30 М₽ товарных остатков. Равномерное покрытие всего Нижнего Новгорода &mdash; географическая монополия. Подключение нового магазина к ERP: 1 день. AI-системы масштабируются на все ваши города без доп. разработки. Команда переходит с бизнесом — не нужно нанимать, обучать, выстраивать процессы. Омниканальная коммуникация (8 каналов) интегрируется с вашей CRM. 500+ готовых функций в 8 системах.</p>
+      </div>
+      <div class="syn-card reveal reveal-delay-2">
+        <span class="syn-num">03</span>
+        <h3>Данные &mdash; актив, который нельзя купить</h3>
+        <p>6+ лет данных: 10М+ чеков, 50М+ товарных строк, 273К клиентов с полной историей, 2 304 часа диалогов ежедневно. Обученные ML-модели (Prophet + XGBoost) на реальных данных, доменный словарь 1 500+ терминов цветочной отрасли. Конверсия офлайн-магазина на уровне каждого диалога &mdash; единственная такая система в отрасли. Персональные профили 200 сотрудников с динамикой за месяцы. Эти данные невозможно купить отдельно и требуют лет для воспроизведения.</p>
+      </div>
+      <div class="syn-card reveal reveal-delay-3">
+        <span class="syn-num">04</span>
+        <h3>Рост выручки и маржи</h3>
+        <p>Мультиканал: 531 &rarr; 680 М₽ (+28%). Маркетплейсы: &times;2.6 за год (38 &rarr; 100 М₽). Бонусная программа (91 функция): +20М₽ (год 1) &rarr; +60 М₽ (год 3). Динамическое ценообразование per store: +3&ndash;8% маржи. AI-продажи 24/7 через 8 каналов. Конверсия через видеонаблюдение. Средний чек онлайн: 3 326₽ (на 36% выше офлайна). AI-экосистема для клиентов: двойная валюта, реферальная система, Telegram-ускоритель &mdash; вирусный органический рост базы.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 18: CTA -->
+<section class="cta">
+  <div>
+    <h2 class="reveal">Следующий шаг</h2>
+    <div class="hero-line reveal"></div>
+    <p class="cta-sub reveal">Обсудить условия сделки</p>
+    <p class="reveal" style="color:rgba(248,246,240,0.4); font-size:15px;">Готовы к диалогу</p>
+    <p class="cta-badge reveal">Конфиденциально</p>
+  </div>
+</section>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 80);
+});
+</script>
+
+</body>
+</html>
