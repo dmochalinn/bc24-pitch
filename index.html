@@ -1088,157 +1088,157 @@ p { line-height: 1.7; }
       </div>
     </div>
 
-    <!-- Horizontal bar chart -->
+    <!-- Bar chart: labels OUTSIDE bars -->
     <div class="reveal" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:32px;margin-bottom:32px;">
 
       <!-- Legend -->
-      <div style="display:flex;gap:24px;margin-bottom:28px;align-items:center;">
+      <div style="display:flex;gap:24px;margin-bottom:28px;">
         <div style="display:flex;align-items:center;gap:8px;">
-          <div style="width:20px;height:10px;background:linear-gradient(to right,#1B4F3A,#2d7a5a);border-radius:2px;"></div>
-          <span style="font-size:13px;color:rgba(248,246,240,0.6);">Выручка, М₽ (max = 755)</span>
+          <div style="width:24px;height:12px;background:linear-gradient(to right,#1B4F3A,#2d7a5a);border-radius:3px;"></div>
+          <span style="font-size:13px;color:rgba(248,246,240,0.6);">Выручка, М₽</span>
         </div>
         <div style="display:flex;align-items:center;gap:8px;">
-          <div style="width:20px;height:10px;background:linear-gradient(to right,#8B6B20,#C9A84C);border-radius:2px;"></div>
-          <span style="font-size:13px;color:rgba(248,246,240,0.6);">EBITDA, М₽ (max = 139)</span>
+          <div style="width:24px;height:12px;background:linear-gradient(to right,#8B6B20,#C9A84C);border-radius:3px;"></div>
+          <span style="font-size:13px;color:rgba(248,246,240,0.6);">EBITDA, М₽</span>
         </div>
+        <div style="margin-left:auto;font-size:12px;color:rgba(248,246,240,0.3);">← шкала: 0 — 755 М₽</div>
       </div>
 
-      <!-- Rows -->
-      <div style="display:flex;flex-direction:column;gap:20px;">
+      <div style="display:flex;flex-direction:column;gap:18px;">
 
+        <!-- ROW MACRO: year | rev-bar [value] | ebitda-bar [value] | margin -->
         <!-- 2024 -->
-        <div style="display:grid;grid-template-columns:90px 1fr 60px;align-items:center;gap:12px;">
-          <div style="text-align:right;">
-            <div style="font-size:14px;font-weight:600;color:rgba(248,246,240,0.7);">2024</div>
-            <div style="font-size:10px;color:rgba(248,246,240,0.3);">факт</div>
+        <div style="display:grid;grid-template-columns:80px 1fr;gap:8px;align-items:center;">
+          <div>
+            <div style="font-size:14px;font-weight:600;color:rgba(248,246,240,0.75);text-align:right;padding-right:12px;">2024</div>
+            <div style="font-size:10px;color:rgba(248,246,240,0.3);text-align:right;padding-right:12px;">факт</div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:6px;">
-            <div style="height:20px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;position:relative;">
-              <div style="position:absolute;left:0;top:0;bottom:0;width:75.5%;background:linear-gradient(to right,#1B4F3A,#2d7a5a);border-radius:4px;display:flex;align-items:center;padding-left:8px;">
-                <span style="font-size:11px;color:rgba(255,255,255,0.9);font-weight:600;white-space:nowrap;">570 М₽</span>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="flex:1;height:22px;background:rgba(255,255,255,0.06);border-radius:4px;position:relative;">
+                <div style="height:100%;width:75.5%;background:linear-gradient(to right,#1B4F3A,#2d7a5a);border-radius:4px;"></div>
               </div>
+              <span style="min-width:60px;font-size:13px;font-weight:600;color:#6b9980;">570 М₽</span>
             </div>
-            <div style="height:16px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;position:relative;">
-              <div style="position:absolute;left:0;top:0;bottom:0;width:64.4%;background:linear-gradient(to right,#8B6B20,#C9A84C);border-radius:4px;display:flex;align-items:center;padding-left:8px;">
-                <span style="font-size:10px;color:rgba(255,255,255,0.9);font-weight:600;white-space:nowrap;">89.5 М₽</span>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="flex:1;height:18px;background:rgba(255,255,255,0.06);border-radius:4px;position:relative;">
+                <div style="height:100%;width:64.4%;background:linear-gradient(to right,#8B6B20,#C9A84C);border-radius:4px;opacity:0.9;"></div>
               </div>
+              <span style="min-width:60px;font-size:12px;font-weight:600;color:#C9A84C;">89.5 М₽ <span style="font-size:10px;opacity:0.6;">15.7%</span></span>
             </div>
           </div>
-          <div style="font-size:13px;color:rgba(248,246,240,0.4);">15.7%</div>
         </div>
 
         <!-- 2025 -->
-        <div style="display:grid;grid-template-columns:90px 1fr 60px;align-items:center;gap:12px;">
-          <div style="text-align:right;">
-            <div style="font-size:14px;font-weight:600;color:rgba(248,246,240,0.7);">2025</div>
-            <div style="font-size:10px;color:rgba(248,246,240,0.3);">факт</div>
+        <div style="display:grid;grid-template-columns:80px 1fr;gap:8px;align-items:center;">
+          <div>
+            <div style="font-size:14px;font-weight:600;color:rgba(248,246,240,0.75);text-align:right;padding-right:12px;">2025</div>
+            <div style="font-size:10px;color:rgba(248,246,240,0.3);text-align:right;padding-right:12px;">факт</div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:6px;">
-            <div style="height:20px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;position:relative;">
-              <div style="position:absolute;left:0;top:0;bottom:0;width:74.7%;background:linear-gradient(to right,#1B4F3A,#2d7a5a);border-radius:4px;display:flex;align-items:center;padding-left:8px;">
-                <span style="font-size:11px;color:rgba(255,255,255,0.9);font-weight:600;white-space:nowrap;">564 М₽</span>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="flex:1;height:22px;background:rgba(255,255,255,0.06);border-radius:4px;position:relative;">
+                <div style="height:100%;width:74.7%;background:linear-gradient(to right,#1B4F3A,#2d7a5a);border-radius:4px;"></div>
               </div>
+              <span style="min-width:60px;font-size:13px;font-weight:600;color:#6b9980;">564 М₽</span>
             </div>
-            <div style="height:16px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;position:relative;">
-              <div style="position:absolute;left:0;top:0;bottom:0;width:76.6%;background:linear-gradient(to right,#8B6B20,#C9A84C);border-radius:4px;display:flex;align-items:center;padding-left:8px;">
-                <span style="font-size:10px;color:rgba(255,255,255,0.9);font-weight:600;white-space:nowrap;">106.7 М₽</span>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="flex:1;height:18px;background:rgba(255,255,255,0.06);border-radius:4px;position:relative;">
+                <div style="height:100%;width:76.6%;background:linear-gradient(to right,#8B6B20,#C9A84C);border-radius:4px;opacity:0.9;"></div>
               </div>
+              <span style="min-width:60px;font-size:12px;font-weight:600;color:#C9A84C;">106.7 М₽ <span style="font-size:10px;opacity:0.6;">18.9%</span></span>
             </div>
           </div>
-          <div style="font-size:13px;color:rgba(248,246,240,0.4);">18.9%</div>
         </div>
 
         <!-- 2026 -->
-        <div style="display:grid;grid-template-columns:90px 1fr 60px;align-items:center;gap:12px;">
-          <div style="text-align:right;">
-            <div style="font-size:14px;font-weight:600;color:rgba(248,246,240,0.7);">2026</div>
-            <div style="font-size:10px;color:rgba(248,246,240,0.3);">план</div>
+        <div style="display:grid;grid-template-columns:80px 1fr;gap:8px;align-items:center;">
+          <div>
+            <div style="font-size:14px;font-weight:600;color:rgba(248,246,240,0.75);text-align:right;padding-right:12px;">2026</div>
+            <div style="font-size:10px;color:rgba(248,246,240,0.3);text-align:right;padding-right:12px;">план</div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:6px;">
-            <div style="height:20px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;position:relative;">
-              <div style="position:absolute;left:0;top:0;bottom:0;width:75.1%;background:linear-gradient(to right,#1B4F3A,#2d7a5a);border-radius:4px;display:flex;align-items:center;padding-left:8px;">
-                <span style="font-size:11px;color:rgba(255,255,255,0.9);font-weight:600;white-space:nowrap;">567 М₽</span>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="flex:1;height:22px;background:rgba(255,255,255,0.06);border-radius:4px;position:relative;">
+                <div style="height:100%;width:75.1%;background:linear-gradient(to right,#1B4F3A,#2d7a5a);border-radius:4px;"></div>
               </div>
+              <span style="min-width:60px;font-size:13px;font-weight:600;color:#6b9980;">567 М₽</span>
             </div>
-            <div style="height:16px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;position:relative;">
-              <div style="position:absolute;left:0;top:0;bottom:0;width:83.8%;background:linear-gradient(to right,#8B6B20,#C9A84C);border-radius:4px;display:flex;align-items:center;padding-left:8px;">
-                <span style="font-size:10px;color:rgba(255,255,255,0.9);font-weight:600;white-space:nowrap;">116.5 М₽</span>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="flex:1;height:18px;background:rgba(255,255,255,0.06);border-radius:4px;position:relative;">
+                <div style="height:100%;width:83.8%;background:linear-gradient(to right,#8B6B20,#C9A84C);border-radius:4px;opacity:0.9;"></div>
               </div>
+              <span style="min-width:60px;font-size:12px;font-weight:600;color:#C9A84C;">116.5 М₽ <span style="font-size:10px;opacity:0.6;">20.5%</span></span>
             </div>
           </div>
-          <div style="font-size:13px;color:rgba(248,246,240,0.4);">20.5%</div>
         </div>
 
-        <!-- 2027 — PEAK MARGIN -->
-        <div style="display:grid;grid-template-columns:90px 1fr 60px;align-items:center;gap:12px;background:rgba(201,168,76,0.05);border-radius:8px;padding:8px 0;">
-          <div style="text-align:right;">
-            <div style="font-size:14px;font-weight:700;color:#C9A84C;">2027 ▲</div>
-            <div style="font-size:10px;color:rgba(201,168,76,0.5);">пик маржи</div>
+        <!-- 2027 — PEAK -->
+        <div style="display:grid;grid-template-columns:80px 1fr;gap:8px;align-items:center;background:rgba(201,168,76,0.06);border-radius:8px;padding:6px 0;">
+          <div>
+            <div style="font-size:14px;font-weight:700;color:#C9A84C;text-align:right;padding-right:12px;">2027 ▲</div>
+            <div style="font-size:10px;color:rgba(201,168,76,0.5);text-align:right;padding-right:12px;">пик маржи</div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:6px;">
-            <div style="height:20px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;position:relative;">
-              <div style="position:absolute;left:0;top:0;bottom:0;width:82.6%;background:linear-gradient(to right,#1B4F3A,#33906a);border-radius:4px;display:flex;align-items:center;padding-left:8px;">
-                <span style="font-size:11px;color:rgba(255,255,255,0.95);font-weight:700;white-space:nowrap;">624 М₽</span>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="flex:1;height:22px;background:rgba(255,255,255,0.06);border-radius:4px;position:relative;">
+                <div style="height:100%;width:82.6%;background:linear-gradient(to right,#1B4F3A,#33906a);border-radius:4px;"></div>
               </div>
+              <span style="min-width:60px;font-size:13px;font-weight:700;color:#6b9980;">624 М₽</span>
             </div>
-            <div style="height:16px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;position:relative;">
-              <div style="position:absolute;left:0;top:0;bottom:0;width:96.9%;background:linear-gradient(to right,#8B6B20,#dbb84e);border-radius:4px;display:flex;align-items:center;padding-left:8px;">
-                <span style="font-size:10px;color:rgba(255,255,255,0.95);font-weight:700;white-space:nowrap;">134.6 М₽</span>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="flex:1;height:18px;background:rgba(255,255,255,0.06);border-radius:4px;position:relative;">
+                <div style="height:100%;width:96.9%;background:linear-gradient(to right,#8B6B20,#dbb84e);border-radius:4px;"></div>
               </div>
+              <span style="min-width:60px;font-size:12px;font-weight:700;color:#dbb84e;">134.6 М₽ <span style="font-size:10px;color:#C9A84C;">21.6%</span></span>
             </div>
           </div>
-          <div style="font-size:14px;font-weight:700;color:#C9A84C;">21.6%</div>
         </div>
 
         <!-- 2028 -->
-        <div style="display:grid;grid-template-columns:90px 1fr 60px;align-items:center;gap:12px;">
-          <div style="text-align:right;">
-            <div style="font-size:14px;font-weight:600;color:rgba(248,246,240,0.7);">2028</div>
-            <div style="font-size:10px;color:rgba(248,246,240,0.3);">прогноз</div>
+        <div style="display:grid;grid-template-columns:80px 1fr;gap:8px;align-items:center;">
+          <div>
+            <div style="font-size:14px;font-weight:600;color:rgba(248,246,240,0.75);text-align:right;padding-right:12px;">2028</div>
+            <div style="font-size:10px;color:rgba(248,246,240,0.3);text-align:right;padding-right:12px;">прогноз</div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:6px;">
-            <div style="height:20px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;position:relative;">
-              <div style="position:absolute;left:0;top:0;bottom:0;width:90.9%;background:linear-gradient(to right,#1B4F3A,#33906a);border-radius:4px;display:flex;align-items:center;padding-left:8px;">
-                <span style="font-size:11px;color:rgba(255,255,255,0.9);font-weight:600;white-space:nowrap;">686 М₽</span>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="flex:1;height:22px;background:rgba(255,255,255,0.06);border-radius:4px;position:relative;">
+                <div style="height:100%;width:90.9%;background:linear-gradient(to right,#1B4F3A,#33906a);border-radius:4px;"></div>
               </div>
+              <span style="min-width:60px;font-size:13px;font-weight:600;color:#6b9980;">686 М₽</span>
             </div>
-            <div style="height:16px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;position:relative;">
-              <div style="position:absolute;left:0;top:0;bottom:0;width:99.3%;background:linear-gradient(to right,#8B6B20,#C9A84C);border-radius:4px;display:flex;align-items:center;padding-left:8px;">
-                <span style="font-size:10px;color:rgba(255,255,255,0.9);font-weight:600;white-space:nowrap;">138.5 М₽</span>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="flex:1;height:18px;background:rgba(255,255,255,0.06);border-radius:4px;position:relative;">
+                <div style="height:100%;width:99.3%;background:linear-gradient(to right,#8B6B20,#C9A84C);border-radius:4px;opacity:0.9;"></div>
               </div>
+              <span style="min-width:60px;font-size:12px;font-weight:600;color:#C9A84C;">138.5 М₽ <span style="font-size:10px;opacity:0.6;">20.2%</span></span>
             </div>
           </div>
-          <div style="font-size:13px;color:rgba(248,246,240,0.4);">20.2%</div>
         </div>
 
         <!-- 2029 -->
-        <div style="display:grid;grid-template-columns:90px 1fr 60px;align-items:center;gap:12px;">
-          <div style="text-align:right;">
-            <div style="font-size:14px;font-weight:600;color:#6b9980;">2029</div>
-            <div style="font-size:10px;color:rgba(107,153,128,0.4);">прогноз</div>
+        <div style="display:grid;grid-template-columns:80px 1fr;gap:8px;align-items:center;">
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#6b9980;text-align:right;padding-right:12px;">2029</div>
+            <div style="font-size:10px;color:rgba(107,153,128,0.4);text-align:right;padding-right:12px;">прогноз</div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:6px;">
-            <div style="height:20px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;position:relative;">
-              <div style="position:absolute;left:0;top:0;bottom:0;width:100%;background:linear-gradient(to right,#1B4F3A,#3da876);border-radius:4px;display:flex;align-items:center;padding-left:8px;">
-                <span style="font-size:11px;color:rgba(255,255,255,0.95);font-weight:700;white-space:nowrap;">755 М₽</span>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="flex:1;height:22px;background:rgba(255,255,255,0.06);border-radius:4px;position:relative;">
+                <div style="height:100%;width:100%;background:linear-gradient(to right,#1B4F3A,#3da876);border-radius:4px;"></div>
               </div>
+              <span style="min-width:60px;font-size:13px;font-weight:700;color:#6b9980;">755 М₽</span>
             </div>
-            <div style="height:16px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;position:relative;">
-              <div style="position:absolute;left:0;top:0;bottom:0;width:100%;background:linear-gradient(to right,#8B6B20,#C9A84C);border-radius:4px;display:flex;align-items:center;padding-left:8px;">
-                <span style="font-size:10px;color:rgba(255,255,255,0.9);font-weight:600;white-space:nowrap;">139.3 М₽</span>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="flex:1;height:18px;background:rgba(255,255,255,0.06);border-radius:4px;position:relative;">
+                <div style="height:100%;width:100%;background:linear-gradient(to right,#8B6B20,#C9A84C);border-radius:4px;opacity:0.9;"></div>
               </div>
+              <span style="min-width:60px;font-size:12px;font-weight:600;color:#C9A84C;">139.3 М₽ <span style="font-size:10px;opacity:0.6;">18.5%</span></span>
             </div>
           </div>
-          <div style="font-size:13px;color:rgba(107,153,128,0.8);">18.5%</div>
         </div>
 
-      </div>
-
-      <!-- Scale note -->
-      <div style="display:flex;justify-content:space-between;margin-top:16px;border-top:1px solid rgba(255,255,255,0.05);padding-top:12px;">
-        <span style="font-size:11px;color:rgba(248,246,240,0.2);">← 0 М₽</span>
-        <span style="font-size:11px;color:rgba(248,246,240,0.2);">Маржа EBITDA →</span>
-        <span style="font-size:11px;color:rgba(248,246,240,0.2);">755 М₽ →</span>
       </div>
     </div>
 
